@@ -23,3 +23,12 @@ set_property IOSTANDARD LVCMOS18 [get_ports {user_led_g1}]
 set_property IOSTANDARD LVCMOS18 [get_ports {avr_ck}]
 set_property IOSTANDARD LVCMOS18 [get_ports {avr_rx}]
 set_property IOSTANDARD LVCMOS18 [get_ports {avr_tx}]
+
+create_clock -period 3.333 -name aux_clk_p [get_ports aux_clk_p]
+
+set_property PACKAGE_PIN   BC18     [get_ports aux_clk_n]
+set_property PACKAGE_PIN   BB18     [get_ports aux_clk_p]
+set_property IOSTANDARD    LVDS     [get_ports aux_clk_p]
+set_property IOSTANDARD    LVDS     [get_ports aux_clk_n]
+set_property DIFF_TERM_ADV TERM_100 [get_ports aux_clk_p]
+set_property DIFF_TERM_ADV TERM_100 [get_ports aux_clk_n]

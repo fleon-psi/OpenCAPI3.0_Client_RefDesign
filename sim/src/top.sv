@@ -787,6 +787,13 @@ module top (
         `endif
 
     `endif
+
+    reg aux_clk_p;
+    initial aux_clk_p <= 0;
+    always begin
+        aux_clk_p = !aux_clk_p; #(3.333ns / 2.0);
+    end
+
     `ifdef AD9H3
     `ifdef ENABLE_ETHERNET
       `ifndef ENABLE_ETH_LOOP_BACK
@@ -1238,7 +1245,8 @@ module top (
    ,.avr_tx          ()        // This output can be user defined
    ,.avr_ck          (avr_ck),
  `endif
-
+   .aux_clk_p       ( aux_clk_p),
+   .aux_clk_n       (~aux_clk_p),
 
         `ifdef ENABLE_DDR
           `ifdef AD9V3

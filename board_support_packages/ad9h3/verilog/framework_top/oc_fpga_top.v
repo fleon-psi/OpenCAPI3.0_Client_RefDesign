@@ -101,7 +101,9 @@ module oc_fpga_top (
     , inout                  eeprom_scl
     , inout                  eeprom_sda
     , output                 eeprom_wp
-`endif 
+`endif
+    , input                  aux_clk_n
+    , input                  aux_clk_p
 `ifdef ENABLE_9H3_AVR
     , input                  avr_rx
     , output                 avr_tx
@@ -1139,6 +1141,8 @@ oc_function oc_func(
     , .avr_tx          (avr_tx              )
     , .avr_ck          (avr_ck              )
 `endif
+    , .aux_clk_p       (aux_clk_p           )
+    , .aux_clk_n       (aux_clk_n           )
 );
 
 

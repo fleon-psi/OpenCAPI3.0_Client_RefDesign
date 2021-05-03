@@ -107,6 +107,8 @@ module oc_fpga_top (
     , output                 avr_tx
     , input                  avr_ck
 `endif
+    , input                  aux_clk_n
+    , input                  aux_clk_p
 `ifdef FLASH
    ,inout  FPGA_FLASH_CE2_L       // To/From FLASH of flash_sub_system.v
    ,inout  FPGA_FLASH_DQ4         // To/From FLASH of flash_sub_system.v
@@ -1139,6 +1141,8 @@ oc_function oc_func(
     , .avr_tx          (avr_tx              )
     , .avr_ck          (avr_ck              )
 `endif
+    , .aux_clk_p       (aux_clk_p           )
+    , .aux_clk_n       (aux_clk_n           )
 );
 
 
